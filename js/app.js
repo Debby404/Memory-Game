@@ -5,7 +5,7 @@ let allCards = deck.querySelectorAll("li.card")
 allCards.forEach(function(card){
   card.addEventListener("click", function(){
     toggle(card);
-    console.log("I'm a card!!");
+    storeCards(card);
   })
 })
 
@@ -15,7 +15,12 @@ function toggle(card){
   card.classList.toggle("show");
 }
 
+let openCards = [];
 
+function storeCards(card){
+  openCards.push(card);
+  console.log("I added a card");
+}
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
