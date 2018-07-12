@@ -1,6 +1,18 @@
 let deck = document.querySelector(".deck");
 let allCards = deck.querySelectorAll("li.card")
 
+
+//shuffeling cards - input
+function shuffleDeck(){
+  let cardsToShuffle = Array.from(document.querySelectorAll(".deck li"));
+  console.log("we are shuffled");
+  let shuffledCards = shuffle(cardsToShuffle);
+  for (cards of shuffledCards){
+    deck.appendChild(cards);
+  }
+}
+shuffleDeck();
+
 //adds event listener when clicked
 allCards.forEach(function(card){
   card.addEventListener("click", function(){
@@ -26,6 +38,7 @@ function storeCards(card){
   openCards.push(card);
 }
 
+//matching cards
 function match(card){
   if (openCards[0].firstElementChild.className === openCards[1].firstElementChild.className) {
     openCards[0].classList.toggle("match");
