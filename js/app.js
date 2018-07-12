@@ -1,14 +1,21 @@
-/*
- * Create a list that holds all of your cards
- */
+let deck = document.querySelector(".deck");
+let allCards = deck.querySelectorAll("li.card")
+
+//adds event listener when clicked
+allCards.forEach(function(card){
+  card.addEventListener("click", function(){
+    toggle(card);
+    console.log("I'm a card!!");
+  })
+})
+
+//adds classes "open" and "show" when clicked
+function toggle(card){
+  card.classList.toggle("open");
+  card.classList.toggle("show");
+}
 
 
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -25,6 +32,17 @@ function shuffle(array) {
     return array;
 }
 
+/*
+ * Create a list that holds all of your cards
+ */
+
+
+/*
+ * Display the cards on the page
+ *   - shuffle the list of cards using the provided "shuffle" method below
+ *   - loop through each card and create its HTML
+ *   - add each card's HTML to the page
+ */
 
 /*
  * set up the event listener for a card. If a card is clicked:
