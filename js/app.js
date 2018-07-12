@@ -4,8 +4,13 @@ let allCards = deck.querySelectorAll("li.card")
 //adds event listener when clicked
 allCards.forEach(function(card){
   card.addEventListener("click", function(){
-    toggle(card);
-    storeCards(card);
+    if (openCards.length < 2) {
+      toggle(card);
+      storeCards(card);
+        if (openCards.length === 2) {
+          console.log("let's see if you match");
+        }
+    }
   })
 })
 
@@ -19,8 +24,11 @@ let openCards = [];
 
 function storeCards(card){
   openCards.push(card);
-  console.log("I added a card");
 }
+
+
+
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
