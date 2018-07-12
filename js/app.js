@@ -8,7 +8,7 @@ allCards.forEach(function(card){
       toggle(card);
       storeCards(card);
         if (openCards.length === 2) {
-          console.log("let's see if you match");
+          match(card);
         }
     }
   })
@@ -26,7 +26,19 @@ function storeCards(card){
   openCards.push(card);
 }
 
-
+function match(card){
+  if (openCards[0].firstElementChild.className === openCards[1].firstElementChild.className) {
+    openCards[0].classList.toggle("match");
+    openCards[1].classList.toggle("match");
+    openCards = [];
+  }else {
+    setTimeout(function(){
+      toggle(openCards[0]);
+      toggle(openCards[1]);
+      openCards = [];
+    }, 1000);
+  }
+}
 
 
 
