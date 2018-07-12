@@ -4,7 +4,7 @@ let allCards = deck.querySelectorAll("li.card")
 //adds event listener when clicked
 allCards.forEach(function(card){
   card.addEventListener("click", function(){
-    if (openCards.length < 2) {
+    if (!card.classList.contains("match") && openCards.length < 2 && !openCards.includes(card)) {
       toggle(card);
       storeCards(card);
         if (openCards.length === 2) {
