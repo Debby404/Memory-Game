@@ -5,7 +5,6 @@ let allCards = deck.querySelectorAll("li.card")
 //shuffeling cards - input
 function shuffleDeck(){
   let cardsToShuffle = Array.from(document.querySelectorAll(".deck li"));
-  console.log("we are shuffled");
   let shuffledCards = shuffle(cardsToShuffle);
   for (cards of shuffledCards){
     deck.appendChild(cards);
