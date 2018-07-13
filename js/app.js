@@ -21,6 +21,7 @@ allCards.forEach(function(card){
         if (openCards.length === 2) {
           match(card);
           addMoves();
+          checkMoves();
         }
     }
   })
@@ -78,7 +79,28 @@ function addMoves(){
   let countMoves = document.querySelector(".moves");
   countMoves.innerHTML = tareMoves;
 }
-// let moves = document.querySelector("moves");
+
+//check Moves
+function checkMoves(){
+  if (tareMoves === 16 || tareMoves === 24) {
+    stars();
+  }
+}
+
+
+//remove one star after a certain number of clicks
+function stars(){
+  let starList = document.querySelectorAll(".stars li");
+  for (star of starList){
+    if (star.style.display != "none"){
+        star.style.display = "none";
+        break;
+    }
+
+ }}
+
+
+
 
 
 
