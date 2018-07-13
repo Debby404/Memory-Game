@@ -20,6 +20,7 @@ allCards.forEach(function(card){
       storeCards(card);
         if (openCards.length === 2) {
           match(card);
+          addMoves();
         }
     }
   })
@@ -52,8 +53,6 @@ function match(card){
   }
 }
 
-
-
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -68,6 +67,24 @@ function shuffle(array) {
 
     return array;
 }
+
+//add Moves
+//if two cards are clicked - add one move
+//when two cards are clickd, matching or not it counts as one move - moves++
+let tareMoves = 0;
+
+function addMoves(){
+  tareMoves++;
+  let countMoves = document.querySelector(".moves");
+  countMoves.innerHTML = tareMoves;
+}
+// let moves = document.querySelector("moves");
+
+
+
+
+
+
 
 /*
  * Create a list that holds all of your cards
