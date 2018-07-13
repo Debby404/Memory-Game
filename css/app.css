@@ -91,6 +91,14 @@ h1 {
     margin-bottom: 10px;
 }
 
+.score-panel .clock {
+    padding-left: 60px;
+}
+
+.score-panel .moves {
+    padding-left: 20px;
+}
+
 .score-panel .stars {
     margin: 0;
     padding: 0;
