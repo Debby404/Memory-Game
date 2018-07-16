@@ -3,6 +3,7 @@
 let deck = document.querySelector(".deck");
 let allCards = deck.querySelectorAll("li.card")
 let clockOff = true;
+let time = 0;
 
 
 //shuffeling cards - input
@@ -107,13 +108,19 @@ function stars(){
 
 //clock
 function startClock(){
-  time = 0;
-  let clockId = setInterval(function(){
+    let clockId = setInterval(function(){
+    displayTime();
     time++;
     console.log(time);
   }, 1000);
 }
 
+//connects the timer to the deck!!
+function displayTime(){
+  const clock = document.querySelector(".clock");
+  console.log(clock);
+  clock.innerHTML = time;
+}
 
 
 //game over - win
