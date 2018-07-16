@@ -2,6 +2,7 @@
 
 let deck = document.querySelector(".deck");
 let allCards = deck.querySelectorAll("li.card")
+let tareMoves = 0;
 let clockOff = true;
 let time = 0;
 
@@ -80,7 +81,7 @@ function shuffle(array) {
 //add Moves
 //if two cards are clicked - add one move
 //when two cards are clickd, matching or not it counts as one move - moves++
-let tareMoves = 0;
+
 
 function addMoves(){
   tareMoves++;
@@ -118,17 +119,12 @@ function startClock(){
 //connects the timer to the deck!!
 function displayTime(){
   const clock = document.querySelector(".clock");
-  console.log(clock);
-  clock.innerHTML = time;
+  clock.innerHTML = time
+  let minutes = time / 60;
+  let seconds = time % 60;
 }
 
 
-//game over - win
-// function winner(){
-//   if(openCards.length === openCards.length){
-//     alert("You won!");
-//   }
-// }
 
 
 /*
