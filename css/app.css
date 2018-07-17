@@ -117,6 +117,10 @@ h1 {
 }
 
 /* modal directions taken from Matthew Cranford */
+.hide{
+  display: none; 
+}
+
 .modal_background {
   position: absolute;
   top: 0;
