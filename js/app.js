@@ -120,6 +120,9 @@ function startClock(){
     if (seconds < 10) {
       clock.innerHTML = minutes + ":" + "0" + seconds;
     }
+    else {
+      clock.innerHTML = minutes + ":" + seconds;
+    }
     if(seconds === 60){
       minutes++;
       seconds = 0;
