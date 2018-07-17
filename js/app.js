@@ -148,7 +148,7 @@ function toggleModal() {
   let modal = document.querySelector(".modal_background");
   modal.classList.toggle("hide");
 }
- toggleModal();
+ //toggleModal();
 
 //write results
 function showModalResults(){
@@ -180,9 +180,9 @@ function getStars() {
 //cancel
 document.querySelector(".modal_cancel").addEventListener("click", toggleModal);
 //replay
-document.querySelector(".modal_replay").addEventListener("click", resetGame);
+document.querySelector(".modal_replay").addEventListener("click", replayGame);
 //reset
-document.querySelector(".modal_replay").addEventListener("click", resetGame);
+document.querySelector(".restart").addEventListener("click", resetGame);
 
 
 //reset game
@@ -191,6 +191,7 @@ function resetGame(){
   resetMoves();
   resetStars();
   shuffleDeck();
+  resetCards();
 }
 
 function resetTime() {
@@ -212,9 +213,24 @@ function resetStars(){
   }
 }
 
+function replayGame(){
+  resetGame();
+  toggleModal();
+}
+
 //GAME OVER
 function gameOver(){
   stopClock();
   showModalResults();
   toggleModal();
 }
+
+//resetCards
+function resetCards() {
+  let karten = document.querySelectorAll(".deck li");
+  for (let karte of karten){
+    karte.className = "card";
+  }
+}
+
+//Big thanks to the great tutorial of Matthew Cranford - I drew lots of inspiration and mentorship from his blog! Lots of credit to him!!

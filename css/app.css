@@ -118,7 +118,7 @@ h1 {
 
 /* modal directions taken from Matthew Cranford */
 .hide{
-  display: none; 
+  display: none;
 }
 
 .modal_background {
@@ -173,3 +173,5 @@ h1 {
   background-color: #8080804a;
   border: 1px solid grey;
 }
+
+/* Big thanks to the great tutorial of Matthew Cranford - I drew lots of inspiration and mentorship from his blog! Lots of credit to him!! */
