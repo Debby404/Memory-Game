@@ -4,6 +4,8 @@ let deck = document.querySelector(".deck");
 let allCards = deck.querySelectorAll("li.card")
 let tareMoves = 0;
 let clockOff = true;
+let matchedCards = 0;
+const maxCardPairs = 8;
 
 
 //shuffeling cards - input
@@ -53,6 +55,10 @@ function match(card){
     openCards[0].classList.toggle("match");
     openCards[1].classList.toggle("match");
     openCards = [];
+    matchedCards++;
+    if (matchedCards === maxCardPairs) {
+      gameOver();
+    }
   }else {
     setTimeout(function(){
       toggle(openCards[0]);
@@ -81,7 +87,6 @@ function shuffle(array) {
 //if two cards are clicked - add one move
 //when two cards are clickd, matching or not it counts as one move - moves++
 
-
 function addMoves(){
   tareMoves++;
   let countMoves = document.querySelector(".moves");
@@ -94,7 +99,6 @@ function checkMoves(){
     stars();
   }
 }
-
 
 //remove one star after a certain number of clicks
 function stars(){
@@ -131,7 +135,6 @@ function startClock(){
       hours++;
       minutes = 0;
     }
-
   }, 1000);
 }
 
@@ -171,4 +174,47 @@ function getStars() {
     }
   }
   return starCount;
+}
+
+//adding funtion to buttons
+//cancel
+document.querySelector(".modal_cancel").addEventListener("click", toggleModal);
+//replay
+document.querySelector(".modal_replay").addEventListener("click", resetGame);
+//reset
+document.querySelector(".modal_replay").addEventListener("click", resetGame);
+
+
+//reset game
+function resetGame(){
+  resetTime();
+  resetMoves();
+  resetStars();
+  shuffleDeck();
+}
+
+function resetTime() {
+  stopClock();
+  clockOff = true;
+  clock.innerHTML = "0:00";
+}
+
+function resetMoves() {
+  tareMoves = 0;
+  document.querySelector(".moves").innerHTML = tareMoves;
+}
+
+function resetStars(){
+  starCount = 0;
+  let starList = document.querySelectorAll(".stars li");
+  for (star of starList) {
+    star.style.display = "inline";
+  }
+}
+
+//GAME OVER
+function gameOver(){
+  stopClock();
+  showModalResults();
+  toggleModal();
 }
