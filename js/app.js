@@ -4,9 +4,6 @@ let deck = document.querySelector(".deck");
 let allCards = deck.querySelectorAll("li.card")
 let tareMoves = 0;
 let clockOff = true;
-// let time = 0;
-// let clockId;
-
 
 
 //shuffeling cards - input
@@ -110,6 +107,7 @@ function stars(){
  }}
 
 //clock
+let hours = 0;
 let minutes = 0;
 let seconds = 0;
 let clock = document.querySelector(".clock");
@@ -119,30 +117,25 @@ function startClock(){
   clockId = setInterval(function(){
     clock.innerHTML = minutes + ":" + seconds + "";
     seconds++;
-    if(seconds == 60){
+    if (seconds < 10) {
+      clock.innerHTML = minutes + ":" + "0" + seconds;
+    }
+    if(seconds === 60){
       minutes++;
       seconds = 0;
+    }
+    if (minutes === 60) {
+      hours++;
+      minutes = 0;
     }
 
   }, 1000);
 }
 
-
-// function startClock(){
-//     let clockId = setInterval(function(){
-//     displayTime();
-//     time++;
-//     console.log(time);
-//   }, 1000);
-// }
-//
-// //connects the timer to the deck!!
-// function displayTime(){
-//
-//   clock.innerHTML = time;
-//
-//
-// }
+//stop clock
+function stopClock(){
+  clearInterval(clockId);
+}
 
 
 
